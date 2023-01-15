@@ -6,10 +6,17 @@ const FormCheckPlate = () => {
     const [plate, setPlate] = useState("");
     const [reqMsg, setReqMsg] = useState("");
 
-    function handleSubmit (event){
+    async function handleSubmit (event){
       event.preventDefault();
-      let req = verifyParkingPass(plate);
-      setReqMsg(req.message);
+      setReqMsg('Loading...');
+      try{
+        let req = await verifyParkingPass(plate);
+        let dt = new Date(parseInt(req[2])).toLocaleString();
+        setReqMsg('Allowed Zone: ' + req[1] + ' from: ' + dt);
+      } catch (error) {
+        console.log(error.message);
+        setReqMsg('Failed: ' + error.message);
+      };
     }
   
     return (
@@ -25,7 +32,7 @@ const FormCheckPlate = () => {
         </label>
         <input type="submit" />
       </form>
-      <p>Message: {reqMsg}</p>
+      <p>{reqMsg}</p>
     </div>
     )
 }

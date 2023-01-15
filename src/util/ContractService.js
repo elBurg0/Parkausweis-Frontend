@@ -22,9 +22,6 @@ export async function claimParkingPass(numbersplate, place){
     const req = await contract.methods
         .claimParkingPass(numbersplate, place)
         .send({ from: account })
-        .then(console.log)
-        .catch(console.error);
-    console.log(req);
     return req;
 }
 
@@ -32,8 +29,6 @@ export async function claimVisitorPass(numbersplate){
     const req = await contract.methods
         .claimVisitorPass(numbersplate, Date.now())
         .send({ from: account })
-        .then(console.log)
-        .catch(console.error);
     return req;
 }
 
@@ -41,8 +36,6 @@ export async function renewParkingPass(){
     const req = await contract.methods
         .renewParkingPass()
         .send({ from: account })
-        .then(console.log)
-        .catch(console.error);
     return req;
 }
 
@@ -50,16 +43,13 @@ export function confirmParkingPass(numbersplate){
     const req = contract.methods
         .confirmParkingPass(numbersplate, Date.now())
         .send({ from: account })
-        .then(console.log)
-        .catch(console.error);
     return req;
 }
 
-export async function verifyParkingPass(numbersplate){
-    const req = await contract.methods
+export function verifyParkingPass(numbersplate){
+    const req = contract.methods
         .verifyParkingPass(numbersplate)
         .call({ from: account })
-        .then(console.log)
-        .catch(console.error);
+    console.log(req);
     return req;
 }

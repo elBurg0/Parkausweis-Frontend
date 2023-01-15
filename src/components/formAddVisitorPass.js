@@ -6,10 +6,16 @@ const FormAddVisitorPass = () => {
     const [plate, setPlate] = useState("");
     const [reqMsg, setReqMsg] = useState("");
 
-    function handleSubmit (event){
+    async function handleSubmit (event){
       event.preventDefault();
-      let req = claimVisitorPass(plate);
-      setReqMsg(req.message);
+      setReqMsg('Loading...');
+      try{
+        let req = await claimVisitorPass(plate);
+        setReqMsg('Transaction Hash: ' + req.transactionHash);
+      } catch (error) {
+        console.log(error.message);
+        setReqMsg('Failed: ' + error.message);
+      };
     }
   
     return (

@@ -4,10 +4,17 @@ import {renewParkingPass} from '../util/ContractService'
 
 const FormRenewPlate = () => {
     const [reqMsg, setReqMsg] = useState("");
-    function handleSubmit (event){
+
+    async function handleSubmit (event){
       event.preventDefault();
-      let req = renewParkingPass();
-      setReqMsg(req.message);
+      setReqMsg('Loading...');
+      try{
+        let req = await renewParkingPass();
+        setReqMsg('Transaction Hash: ' + req.transactionHash);
+      } catch (error) {
+        console.log(error.message);
+        setReqMsg('Failed: ' + error.message);
+      };
     }
   
     return (

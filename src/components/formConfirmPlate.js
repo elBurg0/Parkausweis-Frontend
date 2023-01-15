@@ -6,10 +6,15 @@ const FormConfirmPass = () => {
     const [plate, setPlate] = useState("");
     const [reqMsg, setReqMsg] = useState("");
 
-    function handleSubmit (event){
+    async function handleSubmit (event){
       event.preventDefault();
-      let req = confirmParkingPass(plate);
-      setReqMsg(req.message);
+      setReqMsg('Loading...');
+      try{
+        let req = await confirmParkingPass(plate);
+        setReqMsg('Transaction Hash: ' + req.transactionHash);
+      } catch (error) {
+        setReqMsg('Failed: ' + error.message);
+      };
     }
   
     return (
