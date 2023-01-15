@@ -15,16 +15,11 @@ export default async function init_wallet(){
     } else {
         return 'Please install MetaMask'
     }
-}
+};
 
-/*.then((accounts) => {
-    if (accounts.length > 0) {
-        const account = accounts[0];
-        console.log('Connected Wallet: ', account)
-        account = account
-    } else {console.log('Please connect MetaMask account')}
-})
-.catch((error) => {
-    console.log('Error while connecting wallet: ', error)
-});
-*/
+export async function get_walletbalance(walletAddress){
+    const web3 = new Web3(window.ethereum);
+    var balance = await web3.eth.getBalance(walletAddress); //Will give value in.
+    balance = '0.' + balance
+    return balance;
+}
