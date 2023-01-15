@@ -6,6 +6,7 @@ import FormRenewPlate from "./components/formRenewPlate";
 import FormConfirmPlate from "./components/formConfirmPlate";
 import FormAddVisitorPass from "./components/formAddVisitorPass";
 
+
 function App() {
   const [connectedAccount, setConnectedAccount] = useState(null)
   useEffect(() => {
@@ -14,6 +15,13 @@ function App() {
     }
     fetchData();
   }, []);
+
+  window.ethereum.on('accountsChanged', function (accounts) {
+    async function fetchData() {
+      setConnectedAccount(await init_wallet())
+    }
+    fetchData();
+  })
 
   return (
     <div>
