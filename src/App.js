@@ -8,20 +8,17 @@ import FormAddVisitorPass from "./components/formAddVisitorPass";
 
 function App() {
   const [connectedAccount, setConnectedAccount] = useState(null)
-  const [loading, setLoading] = useState(true)
   useEffect(() => {
     async function fetchData() {
       setConnectedAccount(await init_wallet())
-      setLoading(false)
     }
     fetchData();
   }, []);
 
-  if (loading) return <p>Loading...</p>
   return (
     <div>
       <h1>Parking Solutions</h1>
-      <p>Connected Account: {connectedAccount}</p>
+      <p>Connected Wallet: {connectedAccount}</p>
       <FormAddPass/>
       <FormAddVisitorPass/>
       <FormConfirmPlate/>
