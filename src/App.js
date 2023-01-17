@@ -6,6 +6,8 @@ import FormRenewPlate from "./components/formRenewPlate";
 import FormConfirmPlate from "./components/formConfirmPlate";
 import FormAddVisitorPass from "./components/formAddVisitorPass";
 import NavBar from "./components/navBar";
+import FormAddConfirmer from "./components/formAddConfirmer";
+import FormAddWorker from "./components/formAddWorker";
 
 function App() {
   const [connectedAccount, setConnectedAccount] = useState("");
@@ -34,11 +36,18 @@ function App() {
   return (
     <div>
       <NavBar connectedAccount={connectedAccount} balance={walletBalance} />
-      <FormAddPass />
-      <FormAddVisitorPass />
-      <FormRenewPlate />
-      <FormConfirmPlate />
-      <FormCheckPlate />
+      <div className="container">
+        <h1>Benutzer Panel</h1>
+        <FormAddPass />
+        <FormAddVisitorPass />
+        <FormRenewPlate />
+
+        <h1>Admin Panel</h1>
+        <FormConfirmPlate />
+        <FormCheckPlate />
+        <FormAddConfirmer />
+        <FormAddWorker />
+      </div>
     </div>
   );
 }
