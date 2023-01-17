@@ -36,8 +36,8 @@ function App() {
       <NavBar connectedAccount={connectedAccount} balance={walletBalance} />
       <FormAddPass />
       <FormAddVisitorPass />
-      <FormConfirmPlate />
       <FormRenewPlate />
+      <FormConfirmPlate />
       <FormCheckPlate />
     </div>
   );

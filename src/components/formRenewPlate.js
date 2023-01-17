@@ -1,29 +1,32 @@
 import React, { useState } from "react";
 import { renewParkingPass } from "../util/ContractService";
+import { StatusWidget } from "../util/WidgetService";
 
 const FormRenewPlate = () => {
   const [reqMsg, setReqMsg] = useState("");
 
   async function handleSubmit(event) {
     event.preventDefault();
-    setReqMsg("Loading...");
+    setReqMsg("Warten...");
     try {
       let req = await renewParkingPass();
-      setReqMsg("Transaction Hash: " + req.transactionHash);
+      setReqMsg(req.transactionHash);
     } catch (error) {
-      console.log(error.message);
-      setReqMsg("Failed: " + error.message);
+      setReqMsg(error);
     }
   }
 
   return (
-    <div>
-      <h2>Renew Ticket</h2>
+    <div className="container px-5 py-3 my-2 border rounded-3">
+      <h2>Verlängerung des Bewohnerparkausweis beantragen</h2>
       <form onSubmit={handleSubmit}>
-        <label>Renew Ticket:</label>
-        <input type="submit" />
+        <button type="submit" class="btn btn-primary">
+          Senden
+        </button>
       </form>
-      <p>{reqMsg}</p>
+      <p class="col-sm-5 py-3">
+        <StatusWidget reqMsg={reqMsg} />
+      </p>
     </div>
   );
 };

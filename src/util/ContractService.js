@@ -1,15 +1,15 @@
 import Web3 from "web3";
 import init_wallet from "./WalletService";
-const abi = require("./abi.json");
+const abi = require("./abi2.json");
 
 const web3 = new Web3(window.ethereum);
-const contractAddress = "0x6fdFc92F8E38e0d255C56510D3a8D5A940Bf28AE";
+const contractAddress = "0xA5c387419f27329071E4366e931a3903bC2d302A";
 const contract = new web3.eth.Contract(abi, contractAddress);
 
 export async function claimParkingPass(numbersplate, place) {
   const account = await init_wallet();
   const req = await contract.methods
-    .claimParkingPass(numbersplate, place)
+    .claimParkingPass(numbersplate.toLowerCase(), place)
     .send({ from: account });
   return req;
 }
@@ -17,7 +17,7 @@ export async function claimParkingPass(numbersplate, place) {
 export async function claimVisitorPass(numbersplate) {
   const account = await init_wallet();
   const req = await contract.methods
-    .claimVisitorPass(numbersplate, Date.now())
+    .claimVisitorPass(numbersplate.toLowerCase())
     .send({ from: account });
   return req;
 }
@@ -31,7 +31,7 @@ export async function renewParkingPass() {
 export async function confirmParkingPass(numbersplate) {
   const account = await init_wallet();
   const req = await contract.methods
-    .confirmParkingPass(numbersplate, Date.now())
+    .confirmParkingPass(numbersplate.toLowerCase())
     .send({ from: account });
   return req;
 }
@@ -39,7 +39,7 @@ export async function confirmParkingPass(numbersplate) {
 export async function verifyParkingPass(numbersplate) {
   const account = await init_wallet();
   const req = await contract.methods
-    .verifyParkingPass(numbersplate)
+    .verifyParkingPass(numbersplate.toLowerCase())
     .call({ from: account });
   return req;
 }

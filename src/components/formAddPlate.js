@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { claimParkingPass } from "../util/ContractService";
+import { StatusWidget } from "../util/WidgetService";
 
 const FormAddPlate = () => {
   const [plate, setPlate] = useState("");
@@ -8,72 +9,60 @@ const FormAddPlate = () => {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    setReqMsg("Loading...");
+    setReqMsg("Warten...");
     try {
       let req = await claimParkingPass(plate, place);
-      setReqMsg("Transaction Hash: " + req.transactionHash);
+      setReqMsg(req.transactionHash);
     } catch (error) {
-      console.log(error.message);
-      setReqMsg("Failed: " + error.message);
+      setReqMsg(error);
     }
   }
 
   return (
-    <div className="container">
-      <form>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input
-            type="email"
-            class="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            placeholder="Enter email"
-          />
-          <small id="emailHelp" class="form-text text-muted">
-            We'll never share your email with anyone else.
-          </small>
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input
-            type="password"
-            class="form-control"
-            id="exampleInputPassword1"
-            placeholder="Password"
-          />
-        </div>
-        <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-          <label class="form-check-label" for="exampleCheck1">
-            Check me out
+    <div className="container px-5 py-3 my-2 border rounded-3">
+      <h2>Bewohnerparkausweis beantragen</h2>
+      <form onSubmit={handleSubmit}>
+        <div class="row mb-3">
+          <label for="plateInput" class="col-sm-2 col-form-label">
+            Kennzeichen
           </label>
+          <div className="col-sm-5">
+            <input
+              type="plate"
+              class="form-control"
+              id="plateInput"
+              name="plateInput"
+              onChange={(e) => setPlate(e.target.value)}
+              required
+            />
+          </div>
+          <p class="col-sm-5">
+            <StatusWidget reqMsg={reqMsg} />
+          </p>
+        </div>
+        <div class="row mb-3">
+          <label for="placeInput" class="col-sm-2 col-form-label">
+            Zone
+          </label>
+          <div className="col-sm-5 ">
+            <select
+              class="form-select"
+              aria-label="placeInput"
+              onChange={(e) => setPlace(e.target.value)}
+              required
+            >
+              <option selected disabled value="">
+                Bitte auswählen...
+              </option>
+              <option value="Waldstraßenviertel">Waldstraßenviertel</option>
+              <option value="Innenstadt">Innenstadt</option>
+            </select>
+          </div>
         </div>
         <button type="submit" class="btn btn-primary">
-          Submit
+          Senden
         </button>
       </form>
-      <h2>Claim parking ticket</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Enter plate:
-          <input
-            type="text"
-            value={plate}
-            onChange={(e) => setPlate(e.target.value)}
-          />
-        </label>
-        <label>
-          Enter place:
-          <input
-            type="text"
-            value={place}
-            onChange={(e) => setPlace(e.target.value)}
-          />
-        </label>
-        <input type="submit" />
-      </form>
-      <p>{reqMsg}</p>
     </div>
   );
 };
