@@ -1,10 +1,5 @@
 [
 	{
-		"inputs": [],
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
 		"inputs": [
 			{
 				"internalType": "address",
@@ -28,44 +23,6 @@
 		"name": "addWorker",
 		"outputs": [],
 		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "address_plates",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "address_visitorplates",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			}
-		],
-		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -133,91 +90,9 @@
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "req_address_plates",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			}
-		],
-		"name": "requests",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "req_address",
-				"type": "address"
-			},
-			{
-				"internalType": "string",
-				"name": "place",
-				"type": "string"
-			},
-			{
-				"internalType": "bool",
-				"name": "is_init",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			}
-		],
-		"name": "tickets",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "ticket_owner",
-				"type": "address"
-			},
-			{
-				"internalType": "string",
-				"name": "place",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "exp_date",
-				"type": "uint256"
-			},
-			{
-				"internalType": "bool",
-				"name": "is_visitor",
-				"type": "bool"
-			},
-			{
-				"internalType": "bool",
-				"name": "is_valid",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
 	},
 	{
 		"inputs": [
