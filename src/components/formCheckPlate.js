@@ -32,6 +32,7 @@ const FormCheckPlate = () => {
   return (
     <div className="container px-5 py-3 my-2 border rounded-3">
       <h2>Bewohnerparkausweis überprüfen</h2>
+      <p>Hier kann ein Nummernschild auf seine gültige Parkzone überprüft werden.</p>
       <form onSubmit={handleSubmit}>
         <div class="row mb-3">
           <label for="plateInput" class="col-sm-2 col-form-label">

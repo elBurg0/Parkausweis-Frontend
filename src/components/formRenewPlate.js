@@ -19,6 +19,7 @@ const FormRenewPlate = () => {
   return (
     <div className="container px-5 py-3 my-2 border rounded-3">
       <h2>Verlängerung des Bewohnerparkausweis beantragen</h2>
+      <p>Hier kann die Verlängerung eines Bewohnerausweises beantragt werden.</p>
       <form onSubmit={handleSubmit}>
         <button type="submit" class="btn btn-primary">
           Senden

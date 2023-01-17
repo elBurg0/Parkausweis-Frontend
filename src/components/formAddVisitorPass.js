@@ -20,6 +20,7 @@ const FormAddVisitorPass = () => {
   return (
     <div className="container px-5 py-3 my-2 border rounded-3">
       <h2>Besucherparkausweis beantragen</h2>
+      <p>Hier kann ein Besucherparkasuweis für 60 Tage beantragt werden. Nur ein gültiger Besucherparkausweis pro Bewohnerparkausweis ist gleichzeitig möglich.</p>
       <form onSubmit={handleSubmit}>
         <div class="row mb-3">
           <label for="plateInput" class="col-sm-2 col-form-label">
