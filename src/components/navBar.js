@@ -11,6 +11,12 @@ export default function NavBar({ connectedAccount, balance }) {
           class="d-inline-block align-middle px-3"
           alt=""
         />
+        <img
+          src="/ParkingSolutions-logo.png"
+          height="50"
+          class="d-inline-block align-middle px-3"
+          alt=""
+        />
         Parking Solutions
       </a>
       <span class="navbar-text align-middle px-3">
