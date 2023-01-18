@@ -3,7 +3,7 @@ import init_wallet from "./WalletService";
 const abi = require("./abi2.json");
 
 const web3 = new Web3(window.ethereum);
-const contractAddress = "0x19655003566F5B44ba8c8dDbdaead1343FF1E563";
+const contractAddress = "0xa395DC3B85e18B1582b606DE2e9FcEED9b0E1Af0";
 const contract = new web3.eth.Contract(abi, contractAddress);
 
 export async function claimParkingPass(numbersplate, place) {
