@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { confirmParkingPass } from "../util/ContractService";
+import { confirmParkingPass, declineParkingPass } from "../util/ContractService";
 import { StatusWidget } from "../util/WidgetService";
 
 const FormConfirmPass = () => {
   const [plate, setPlate] = useState("");
   const [reqMsg, setReqMsg] = useState("");
 
-  async function handleSubmit(event) {
+  async function handleSubmit_confirm(event) {
     event.preventDefault();
     setReqMsg("Warten...");
     try {
@@ -17,11 +17,22 @@ const FormConfirmPass = () => {
     }
   }
 
+  async function handleSubmit_decline(event) {
+    event.preventDefault();
+    setReqMsg("Warten...");
+    try {
+      let req = await declineParkingPass(plate);
+      setReqMsg(req.transactionHash);
+    } catch (error) {
+      setReqMsg(error);
+    }
+  }
+
   return (
     <div className="container px-5 py-3 my-2 border rounded-3">
-      <h2>Bewohnerparkausweis bestätigen</h2>
-      <p>Hier kann ein Antrag auf einen Bewohnerausweis mit dem Nummernschild bestätigt werden.</p>
-      <form onSubmit={handleSubmit}>
+      <h2>Bewohnerparkausweis-Anfragen bearbeiten </h2>
+      <p>Hier kann ein Antrag auf einen Bewohnerausweis mit dem Nummernschild bestätigt oder abgelehnt werden.</p>
+      <form>
         <div class="row mb-3">
           <label for="plateInput" class="col-sm-2 col-form-label">
             Kennzeichen
@@ -39,8 +50,11 @@ const FormConfirmPass = () => {
             <StatusWidget reqMsg={reqMsg} />
           </p>
         </div>
-        <button type="submit" class="btn btn-primary">
-          Senden
+        <button className="btn btn-success" onClick={handleSubmit_confirm}>
+          Bestätigen
+        </button>
+        <button className="btn mx-2 btn-danger" onClick={handleSubmit_decline}>
+          Löschen
         </button>
       </form>
     </div>

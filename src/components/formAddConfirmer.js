@@ -22,14 +22,14 @@ const FormAddConfirmer = () => {
       <h2>Bestätiger hinzufügen</h2>
       <p>Hier können Wallets von Ordnungsbeamten hinzugefügt werden, damit diese Bewohner- und Besucherparkausweise überprüfen können.</p>
       <form onSubmit={handleSubmit}>
-        <div class="row mb-3">
-          <label for="addressInput" class="col-sm-2 col-form-label">
+        <div className="row mb-3">
+          <label for="addressInput" className="col-sm-2 col-form-label">
             Adresse
           </label>
           <div className="col-sm-5">
             <input
               type="address"
-              class="form-control"
+              className="form-control"
               id="addressInput"
               data-inputmask-mask="[9-]AAA-999"
               onChange={(e) => setConfirmerAddress(e.target.value)}
