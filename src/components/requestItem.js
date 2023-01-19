@@ -3,6 +3,7 @@ import {
   confirmParkingPass,
   declineParkingPass,
 } from "../util/ContractService";
+import { StatusWidget } from "../util/WidgetService";
 
 function RequestItem({ plate, zone }) {
   const [reqMsg, setReqMsg] = useState("");
@@ -34,7 +35,7 @@ function RequestItem({ plate, zone }) {
         <li className="list-group-item">
           <div className="row">
             <p className="col-sm my-auto">{plate}: {zone}</p>
-            <p className="col-sm my-auto">{reqMsg}</p>
+            <p className="col-sm my-auto"><StatusWidget reqMsg={reqMsg}/></p>
             <button
               className="btn btn-success col-sm-1 mx-2 me-auto"
               onClick={() => handleSubmit_confirm(plate)}
