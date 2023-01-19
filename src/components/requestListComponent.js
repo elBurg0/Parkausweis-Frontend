@@ -4,7 +4,7 @@ import RequestItem from "./requestItem";
 function RequestList({ requests }) {
 
   if (requests.length === 0) {
-    return <p>Keine Anfragen oder fehlende Rechte!</p>;
+    return <p class="text-warning">Keine Rechte um mit diesem Wallet Anfragen zu lesen!</p>;
   } else {
     return (
       <div>
