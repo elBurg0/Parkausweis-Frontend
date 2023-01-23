@@ -3,23 +3,23 @@ import init_wallet, { form_address } from "../util/WalletService";
 
 export default function NavBar({ connectedAccount, balance }) {
   return (
-    <nav class="navbar navbar-light bg-light">
-      <a class="navbar-brand px-2">
+    <nav className="navbar navbar-light bg-light">
+      <a className="navbar-brand px-2">
         <img
           src="/Logo-Leipzig.png"
           height="50"
-          class="d-inline-block align-middle px-3"
+          className="d-inline-block align-middle px-3"
           alt=""
         />
         <img
           src="/ParkingSolutions-logo.png"
           height="50"
-          class="d-inline-block align-middle px-3"
+          className="d-inline-block align-middle px-3"
           alt=""
         />
         Parking Solutions
       </a>
-      <span class="navbar-text align-middle px-3">
+      <span className="navbar-text align-middle px-3">
         <WalletWidget account={connectedAccount} balance={balance} />
       </span>
     </nav>
@@ -44,7 +44,7 @@ function WalletWidget({ account, balance }) {
       <div>
         <button
           type="button"
-          class="btn btn-primary btn-sm"
+          className="btn btn-primary btn-sm"
           value="Connect Wallet"
           onClick={init_wallet}
         >

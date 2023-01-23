@@ -22,25 +22,25 @@ const FormAddWorker = () => {
       <h2>Bearbeiter hinzufügen</h2>
       <p>Hier können Wallets von Beamten hinzugefügt werden, damit diese Bewohnerausweise bestätigen können.</p>
       <form onSubmit={handleSubmit}>
-        <div class="row mb-3">
-          <label for="addressInput" class="col-sm-2 col-form-label">
+        <div className="row mb-3">
+          <label htmlFor="addressInput" className="col-sm-2 col-form-label">
             Adresse
           </label>
           <div className="col-sm-5">
             <input
               type="address"
-              class="form-control"
+              className="form-control"
               id="addressInput"
               data-inputmask-mask="[9-]AAA-999"
               onChange={(e) => setworkerAddress(e.target.value)}
               required
             />
           </div>
-          <p class="col-sm-5">
+          <div className="col-sm-5">
             <StatusWidget reqMsg={reqMsg} />
-          </p>
+          </div>
         </div>
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" className="btn btn-primary">
           Senden
         </button>
       </form>

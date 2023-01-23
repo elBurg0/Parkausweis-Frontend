@@ -23,7 +23,7 @@ const FormAddConfirmer = () => {
       <p>Hier können Wallets von Ordnungsbeamten hinzugefügt werden, damit diese Bewohner- und Besucherparkausweise überprüfen können.</p>
       <form onSubmit={handleSubmit}>
         <div className="row mb-3">
-          <label for="addressInput" className="col-sm-2 col-form-label">
+          <label htmlFor="addressInput" className="col-sm-2 col-form-label">
             Adresse
           </label>
           <div className="col-sm-5">
@@ -36,11 +36,11 @@ const FormAddConfirmer = () => {
               required
             />
           </div>
-          <p class="col-sm-5">
+          <div className="col-sm-5">
             <StatusWidget reqMsg={reqMsg} />
-          </p>
+          </div>
         </div>
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" className="btn btn-primary">
           Senden
         </button>
       </form>

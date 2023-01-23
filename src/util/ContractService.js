@@ -73,6 +73,5 @@ export async function getRequests() {
   const req = await contract.methods
     .getRequests()
     .call({ from: account });
-  console.log('req_org', req);
   return req;
 }

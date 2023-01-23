@@ -21,13 +21,13 @@ const FormRenewPlate = () => {
       <h2>Verlängerung des Bewohnerparkausweis beantragen</h2>
       <p>Hier kann die Verlängerung des Bewohnerausweises der aktuell verbundenen Wallet beantragt werden.</p>
       <form onSubmit={handleSubmit}>
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" className="btn btn-primary">
           Senden
         </button>
       </form>
-      <p class="col-sm-5 py-3">
+      <div className="col-sm-5 py-3">
         <StatusWidget reqMsg={reqMsg} />
-      </p>
+      </div>
     </div>
   );
 };

@@ -32,10 +32,11 @@ function RequestItem({ plate, zone }) {
   if (plate) {
     return (
       <div key={plate} className="container">
-        <li className="list-group-item">
+        <li className="list-group-item rounded-3 my-1">
           <div className="row">
-            <p className="col-sm my-auto">{plate}: {zone}</p>
-            <p className="col-sm my-auto"><StatusWidget reqMsg={reqMsg}/></p>
+            <p className="col-sm my-auto">{plate}</p>
+            <p className="col-sm my-auto">{zone}</p>
+            <div className="col-sm my-auto"><StatusWidget reqMsg={reqMsg}/></div>
             <button
               className="btn btn-success col-sm-1 mx-2 me-auto"
               onClick={() => handleSubmit_confirm(plate)}

@@ -34,22 +34,22 @@ const FormCheckPlate = () => {
       <h2>Bewohnerparkausweis überprüfen</h2>
       <p>Hier kann ein Nummernschild auf seine gültige Parkzone überprüft werden.</p>
       <form onSubmit={handleSubmit}>
-        <div class="row mb-3">
-          <label for="plateInput" class="col-sm-2 col-form-label">
+        <div className="row mb-3">
+          <label htmlFor="plateInput" className="col-sm-2 col-form-label">
             Kennzeichen
           </label>
           <div className="col-sm-5">
             <input
               type="plate"
-              class="form-control"
+              className="form-control"
               id="plateInput"
               onChange={(e) => setPlate(e.target.value)}
               required
             />
           </div>
-          <p class="col-sm-5">{reqMsg}</p>
+          <p className="col-sm-5">{reqMsg}</p>
         </div>
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" className="btn btn-primary">
           Senden
         </button>
       </form>

@@ -37,19 +37,19 @@ function App() {
     <div>
       <NavBar connectedAccount={connectedAccount} balance={walletBalance} />
       <div className="container">
-        <h1 class="text-center py-3">Benutzer Panel</h1>
+        <h1 className="text-center py-3">Benutzer Panel</h1>
         <FormAddPass />
         <FormAddVisitorPass />
         <FormRenewPlate />
 
-        <h1 class="text-center py-3">Panel für Ordnungsbeamte</h1>
+        <h1 className="text-center py-3">Panel für Ordnungsbeamte</h1>
         <FormCheckPlate />
 
-        <h1 class="text-center py-3">Admin Panel</h1>
+        <h1 className="text-center py-3">Admin Panel</h1>
         <FormConfirmPlate />
         <FormAddConfirmer />
         <FormAddWorker />
-        <p class="text-center py-2">© ParkingSolutions 2023</p>
+        <p className="text-center py-2">© ParkingSolutions 2023</p>
       </div>
     </div>
   );
