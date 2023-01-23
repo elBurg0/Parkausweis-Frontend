@@ -15,7 +15,6 @@ export function StatusWidget({ reqMsg }) {
     } else if (reqMsg.code === 4001) {
       return <div>Transaktion in MetaMask durch Benutzer abgelehnt!</div>;
     } else if (reqMsg.message) {
-      console.log(reqMsg);
       var error_msg = reqMsg.message.substring(
         reqMsg.message.indexOf('"message": "') + 12,
         reqMsg.message.lastIndexOf('",')

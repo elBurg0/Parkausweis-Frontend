@@ -52,10 +52,9 @@ const FormAddPlate = () => {
               className="form-select"
               aria-label="placeInput"
               onChange={(e) => setPlace(e.target.value)}
+              defaultValue="Waldstraßenviertel"
               required
-              defaultValue="DEFAULT"
             >
-              <option value="DEFAULT" disabled>Bitte wählen ...</option>
               <option value="Waldstraßenviertel">Waldstraßenviertel</option>
               <option value="Innenstadt">Innenstadt</option>
             </select>

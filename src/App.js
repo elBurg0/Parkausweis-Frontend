@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
-import init_wallet, { get_walletbalance } from "./util/WalletService";
-import FormCheckPlate from "./components/formCheckPlate";
-import FormAddPass from "./components/formAddPlate";
-import FormRenewPlate from "./components/formRenewPlate";
-import FormConfirmPlate from "./components/formConfirmPlate";
-import FormAddVisitorPass from "./components/formAddVisitorPass";
+import init_wallet, { get_walletbalance } from "./components/util/WalletService";
 import NavBar from "./components/navBar";
-import FormAddConfirmer from "./components/formAddConfirmer";
-import FormAddWorker from "./components/formAddWorker";
+
+import { Route, Routes } from "react-router-dom";
+import UserComponent from "./components/UserComponent";
+import AdminComponent from "./components/AdminComponent";
+import WorkerComponent from "./components/WorkerComponent";
 
 function App() {
   const [connectedAccount, setConnectedAccount] = useState("");
@@ -37,18 +35,11 @@ function App() {
     <div>
       <NavBar connectedAccount={connectedAccount} balance={walletBalance} />
       <div className="container">
-        <h1 className="text-center py-3">Benutzer Panel</h1>
-        <FormAddPass />
-        <FormAddVisitorPass />
-        <FormRenewPlate />
-
-        <h1 className="text-center py-3">Panel für Ordnungsbeamte</h1>
-        <FormCheckPlate />
-
-        <h1 className="text-center py-3">Admin Panel</h1>
-        <FormConfirmPlate />
-        <FormAddConfirmer />
-        <FormAddWorker />
+        <Routes>
+          <Route path="/" element={<UserComponent/>}/>
+          <Route path="/admin" element={<AdminComponent/>}/>
+          <Route path="/worker" element={<WorkerComponent/>}/>
+        </Routes>
         <p className="text-center py-2">© ParkingSolutions 2023</p>
       </div>
     </div>

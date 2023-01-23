@@ -10,7 +10,6 @@ function RequestItem({ plate, zone }) {
 
   async function handleSubmit_confirm(item) {
     setReqMsg("Warten...");
-    console.log(item);
     try {
       let req = await confirmParkingPass(item);
       setReqMsg(req.transactionHash);

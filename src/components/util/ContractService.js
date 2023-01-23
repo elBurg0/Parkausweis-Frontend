@@ -1,6 +1,6 @@
 import Web3 from "web3";
 import init_wallet from "./WalletService";
-const abi = require("./abi2.json");
+const abi = require("./abi.json");
 
 const web3 = new Web3(window.ethereum);
 const contractAddress = "0x8C445C133dB255e774A4D1bbad6ecffFd3F16994";

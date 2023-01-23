@@ -1,10 +1,11 @@
 import React from "react";
-import init_wallet, { form_address } from "../util/WalletService";
+import init_wallet, { form_address } from "./util/WalletService";
+import { NavLink } from "react-router-dom";
 
 export default function NavBar({ connectedAccount, balance }) {
   return (
-    <nav className="navbar navbar-light bg-light">
-      <a className="navbar-brand px-2">
+    <nav className="navbar nav nav-pills bg-light">
+      <a className="navbar-brand px-2" href="/">
         <img
           src="/Logo-Leipzig.png"
           height="50"
@@ -19,6 +20,32 @@ export default function NavBar({ connectedAccount, balance }) {
         />
         Parking Solutions
       </a>
+      <div className="row">
+        <NavLink
+          exact
+          className="nav-item nav-link col"
+          activeclassname="nav-link active"
+          to="/"
+        >
+          Bewohnerpanel
+        </NavLink>
+        <NavLink
+          exact
+          className="nav-item nav-link col"
+          activeclassname="nav-link active"
+          to="/worker"
+        >
+          Beamtenpanel
+        </NavLink>
+        <NavLink
+          exact
+          className="nav-item nav-link col"
+          activeclassname="nav-link active"
+          to="/admin"
+        >
+          Adminpanel
+        </NavLink>
+      </div>
       <span className="navbar-text align-middle px-3">
         <WalletWidget account={connectedAccount} balance={balance} />
       </span>
@@ -35,7 +62,10 @@ function WalletWidget({ account, balance }) {
     var formed_balance = String(balance).substring(0, 5);
     return (
       <div className="text-right">
-        Wallet: <a href={etherscan_link} target="_blank" rel="noopener noreferrer">{formed_address}</a>
+        Wallet:{" "}
+        <a href={etherscan_link} target="_blank" rel="noopener noreferrer">
+          {formed_address}
+        </a>
         <br></br>Guthaben: {formed_balance} GOR
       </div>
     );
