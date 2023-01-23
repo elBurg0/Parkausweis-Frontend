@@ -23,44 +23,45 @@ const FormAddPlate = () => {
       <h2>Bewohnerparkausweis beantragen</h2>
       <p>Hier kann ein Bewohnerparkasuweis für ein Jahr beantragt werden. Pro Wallet ist nur ein Antrag möglich.</p>
       <form onSubmit={handleSubmit}>
-        <div class="row mb-3">
-          <label for="plateInput" class="col-sm-2 col-form-label">
+        <div className="row mb-3">
+          <label htmlFor="plateInput" className="col-sm-2 col-form-label">
             Kennzeichen
           </label>
           <div className="col-sm-5">
             <input
               type="plate"
-              class="form-control"
+              className="form-control"
               id="plateInput"
               name="plateInput"
+              pattern="([a-zA-Z]{1,3})-([a-zA-Z]{1,2})-\d{1,4}[HE]?"
+              title="A{AA}-A{A}-9{999}{H|E}"
               onChange={(e) => setPlate(e.target.value)}
               required
             />
           </div>
-          <p class="col-sm-5">
+          <div className="col-sm-5">
             <StatusWidget reqMsg={reqMsg} />
-          </p>
+          </div>
         </div>
-        <div class="row mb-3">
-          <label for="placeInput" class="col-sm-2 col-form-label">
+        <div className="row mb-3">
+          <label htmlFor="placeInput" className="col-sm-2 col-form-label">
             Zone
           </label>
           <div className="col-sm-5 ">
             <select
-              class="form-select"
+              className="form-select"
               aria-label="placeInput"
               onChange={(e) => setPlace(e.target.value)}
               required
+              defaultValue="DEFAULT"
             >
-              <option selected disabled value="">
-                Bitte auswählen...
-              </option>
+              <option value="DEFAULT" disabled>Bitte wählen ...</option>
               <option value="Waldstraßenviertel">Waldstraßenviertel</option>
               <option value="Innenstadt">Innenstadt</option>
             </select>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" className="btn btn-primary">
           Senden
         </button>
       </form>
