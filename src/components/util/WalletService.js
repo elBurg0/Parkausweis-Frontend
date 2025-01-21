@@ -9,10 +9,10 @@ export default async function init_wallet() {
       const account = accounts[0];
       return account;
     } catch (error) {
-      return "";
+      return;
     }
   } else {
-    return "no_metamask";
+    return;
   }
 }
 

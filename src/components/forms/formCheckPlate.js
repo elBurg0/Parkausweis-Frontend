@@ -21,18 +21,16 @@ const FormCheckPlate = () => {
         setReqMsg("Transaktion in Metamask durch Benutzer abgelehnt!");
         return;
       }
-      var error_msg = error.message.substring(
-        error.message.indexOf('"message": "') + 12,
-        error.message.lastIndexOf('",')
-      );
-      setReqMsg("Failed: " + error_msg);
+      setReqMsg(error.message);
     }
   }
 
   return (
     <div className="container px-5 py-3 my-2 border rounded-3">
       <h2>Bewohnerparkausweis überprüfen</h2>
-      <p>Hier kann ein Nummernschild auf seine gültige Parkzone überprüft werden.</p>
+      <p>
+        Hier kann ein Nummernschild auf seine gültige Parkzone überprüft werden.
+      </p>
       <form onSubmit={handleSubmit}>
         <div className="row mb-3">
           <label htmlFor="plateInput" className="col-sm-2 col-form-label">

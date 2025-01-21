@@ -1,6 +1,6 @@
 import React from "react";
-import init_wallet, { form_address } from "./util/WalletService";
 import { NavLink } from "react-router-dom";
+import init_wallet, { form_address } from "./util/WalletService";
 
 export default function NavBar({ connectedAccount, balance }) {
   return (
@@ -54,22 +54,7 @@ export default function NavBar({ connectedAccount, balance }) {
 }
 
 function WalletWidget({ account, balance }) {
-  if (account === "no_metamask") {
-    return <p>MetaMask nicht erkannt!</p>;
-  } else if (account !== "") {
-    var formed_address = form_address(account);
-    var etherscan_link = "https://goerli.etherscan.io/address/" + account;
-    var formed_balance = String(balance).substring(0, 5);
-    return (
-      <div className="text-right">
-        Wallet:{" "}
-        <a href={etherscan_link} target="_blank" rel="noopener noreferrer">
-          {formed_address}
-        </a>
-        <br></br>Guthaben: {formed_balance} GOR
-      </div>
-    );
-  } else {
+  if (!account && window.ethereum) {
     return (
       <div>
         <button
@@ -82,5 +67,20 @@ function WalletWidget({ account, balance }) {
         </button>
       </div>
     );
+  } else if (!account) {
+    return <p>MetaMask nicht erkannt!</p>;
   }
+
+  var formed_address = form_address(account);
+  var etherscan_link = "https://goerli.etherscan.io/address/" + account;
+  var formed_balance = String(balance).substring(0, 5);
+  return (
+    <div className="text-right">
+      Wallet:{" "}
+      <a href={etherscan_link} target="_blank" rel="noopener noreferrer">
+        {formed_address}
+      </a>
+      <br></br>Guthaben: {formed_balance} GOR
+    </div>
+  );
 }

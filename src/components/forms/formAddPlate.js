@@ -21,7 +21,10 @@ const FormAddPlate = () => {
   return (
     <div className="container px-5 py-3 my-2 border rounded-3">
       <h2>Bewohnerparkausweis beantragen</h2>
-      <p>Hier kann ein Bewohnerparkasuweis für ein Jahr beantragt werden. Pro Wallet ist nur ein Antrag möglich.</p>
+      <p>
+        Hier kann ein Bewohnerparkasuweis für ein Jahr beantragt werden. Pro
+        Wallet ist nur ein Antrag möglich.
+      </p>
       <form onSubmit={handleSubmit}>
         <div className="row mb-3">
           <label htmlFor="plateInput" className="col-sm-2 col-form-label">
