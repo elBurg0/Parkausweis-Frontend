@@ -14,14 +14,8 @@ export function StatusWidget({ reqMsg }) {
     );
   } else if (reqMsg.code === 4001) {
     return <div>Transaktion in MetaMask durch Benutzer abgelehnt!</div>;
-  } else if (!window.ethereum) {
-    return <div>MetaMask nicht installiert!</div>;
   } else if (reqMsg.message) {
-    var error_msg = reqMsg.message.substring(
-      reqMsg.message.indexOf('"message": "') + 12,
-      reqMsg.message.lastIndexOf('",')
-    );
-    return <div>{error_msg}</div>;
+    return <div>{reqMsg.message}</div>;
   } else {
     return <div>{reqMsg}</div>;
   }
